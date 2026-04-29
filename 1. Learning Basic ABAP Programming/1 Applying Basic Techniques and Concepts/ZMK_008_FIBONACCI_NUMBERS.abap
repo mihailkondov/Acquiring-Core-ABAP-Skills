@@ -39,7 +39,14 @@ CASE pa_count.
     ENDLOOP.
 ENDCASE.
 
+*Formatted output
+WRITE / 'Formatted output:'.
 
+DATA counter TYPE i VALUE 1.
+LOOP AT lt_fibonacci_numbers INTO DATA(current_number).
+  WRITE / | { counter WIDTH = 4 ALIGN = LEFT } { current_number WIDTH = 10 ALIGN = RIGHT }|.
+  counter = counter + 1.
+ENDLOOP.
 **********************************************************************
 * A cool solution>
 * CASE sy-index.
